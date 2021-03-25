@@ -1,0 +1,15 @@
+name: auto build
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: setup node.js environment
+        uses: actions/setup-node@v2.1.5
+        with:
+          run: |
+            npm install
+            npm run bulid
